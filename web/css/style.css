@@ -1,0 +1,313 @@
+/* RESET DEFAULT */
+
+*, html, body, div, dl, dt, dd, ul, ol, li, 
+h1, h2, h3, h4, h5, h6, pre, form, label, 
+fieldset, input, p, blockquote, th, td  {margin:0; padding:0}
+address, caption, cite, code, dfn, em, strong, 
+th, var                                 {font-style:normal; font-weight:normal}
+h1, h2, h3, h4, h5, h6                  {font-size:100%}
+table                                   {border-collapse:collapse; border-spacing:0}
+fieldset, img                           {border:0}
+ol, ul, li                              {list-style:none}
+caption, th                             {text-align:left}
+q:before, q:after                       {content:''}
+strong, dt                              {font-weight: bold}
+em                                      {font-style: italic}
+* a                                     {position:relative} 
+a                                       {outline:none}        
+a img                                   {border:none}
+
+/* TYPOGRAPHY */
+
+body                                    {font-family: Helvetica, sans-serif;}
+  
+body                                    {font-size: 12px;}
+
+/* COLORS */
+
+body                                    {background-color: #bfbfbf;}
+
+body                                    {color: #333333;}
+
+/* BACKGROUNDS */
+
+h1                                      {text-indent: -9999px; overflow: hidden;}
+h1                                      {background-image: url(images/sprite.png)}
+
+/* LAYOUT */
+
+h1, .banner.full, #menu, #menu li, #top li, li h2,
+#top li img, #left, #middle, #right, .twitter img,  #left img,
+#left .item img, .prev, li.sponsors a   {float: left;}
+.publ, form.search, form.search fieldset, li h3,  
+.next, #left img.alignright             {float: right;}
+
+h1, #menu, #left, .colab                {clear: left;}
+.banner.full, form.search, #right,.publ, 
+.home #left big                         {clear: right;}
+#top, #top .more-link, #left li, #footer, .twitter ul, .twitter .status, 
+.twitter small, #left .item, .firma, .single #left big,  #middle big, #top a, 
+#right .banner, dl, dt                  {clear: both;}
+h1 a, table, #top a, big, small, object, iframe, #top .more-link, #menu li a, .excerpt, 
+.twitter .username, .twitter .time, .twitter .status, #left .item, .sponsors a,
+.colaboraciones a, #left .item .halftitle, #middle .publ, .colab,
+li.newsletter label                     {display: block;}
+fieldset, .twitter .username            {display: inline;}
+form.search legend, form.search label,
+img.tracker                             {display: none;}
+
+.twitter .status                        {overflow: hidden;}
+.licencia textarea                      {overflow: auto;}
+
+#left li li                             {list-style-position: inside; list-style-type: circle;}
+
+/* WIDTHS */
+
+body, #page             {margin-left: auto; margin-right: auto;}
+#page                   {width: 984px;}
+/* h1 + .top_banner = #page */
+h1, h1 a                {width: 488px;} 
+.banner.full            {width: 468px; border-left-width: 1px; border-right-width: 1px; margin-left: 14px; margin-right: 12px; padding-left: 0px; padding-right: 0px;}
+/* menu + form.search = #page */
+#menu                   {width: 740px;}
+form.search             {width: 232px; margin-right: 12px;}
+/* 3 x #top li = #page */
+#top li                 {width: 328px;} 
+/* #top h2 + #top h3 = #top li */
+#top h2                 {width: 180px;}
+#top h3                 {width: 127px; padding-right: 21px;}
+/* .home #left + .home #middle = #left */
+#left                   {width: 793px; margin-right: 11px;}
+.home #left             {width: 480px;} 
+#middle                 {width: 302px; margin-right: 11px;}
+/* #middle h2 + #middle h3 = #middle li */
+#middle h2              {width: 130px; }
+#middle h3              {width: 162px; padding-right: 10px;}
+
+/* #left + #right = #page */
+#right                  {width: 170px; margin-right: 10px;} 
+/* #right h2 = #right */
+#right h2, #right ul    {width: 170px;}
+/* #right .publ = #right */
+#right .publ            {margin-left: 60px; margin-right: 59px;}
+/* #right ads = #right */
+.colaboraciones img, 
+.sponsors img           {width: 170px;}
+/* #footer = #page */
+#footer                 {width: 982px; border-left-width: 1px; border-right-width: 1px;}
+/* margin-right >= 12px (shadow) for .banner.full, form.search, .publ, top a */
+.publ                   {width: 51px; margin-right: 12px;}
+.colab                  {width: 74px;}
+/* sum of #menu li <= #menu */
+#menu li                {width: 80px;}
+#menu li.espana, #menu li.eeuu, #menu li.argentina, 
+#menu li.predicciones   {width: 90px;}
+/* top a = top li */
+#top a                  {width: 302px; margin-left: 4px; margin-right: 16px; padding-left: 3px; padding-right: 3px;}
+/* #left h2 + #left h3 = #left */ 
+.home #left h2          {width: 230px;}
+.home #left h3          {width: 240px; padding-right: 10px;}
+#left h2                {width: 500px;}
+#left h3                {width: 283px; padding-right: 10px;}
+/* .licencia textarea (757) <= .single #left form */ 
+.licencia textarea      {width: 697px; margin-left: 30px; margin-right: 30px;}
+/* #middle h2 + #middle h3 = #middle */
+#middle h2              {width: 130px;}
+#middle h3              {width: 162px; padding-right: 10px;}
+
+input[type=text]                        {width: 93px; margin-right: 1px;}
+li.newsletter input[type=text]          {margin-right: 8px;}
+input                                   {padding-left: 2px; padding-right: 2px;}
+#middle .publ                           {margin-right: 0px;}
+
+#right li.newsletter fieldset, 
+#right li.newsletter label              {width: 156px;}
+.twitter .status                        {width: 158px;}
+
+big, h4, #left small, #middle small, #left .excerpt, #middle .excerpt, 
+li.newsletter fieldset                  {padding-left: 6px; padding-right: 6px;}
+.single big, .single p, .single table, .single object, .single iframe, .single #left form, #left li li,
+.single h4, .single dl                  {padding-left: 12px; padding-right: 12px;}
+.home #left img                         {margin-left: 6px;}
+.twitter li                             {margin-left: 6px; margin-right: 6px;}
+
+big, .excerpt, small, .item, .single p, .single h4, .single dl, li.search p, 
+#left li li, .single table, .single #left form, 
+#middle .trailers object                {border-left-width: 1px; border-right-width: 1px; border-left-style: solid; border-right-style: solid;}
+#top big, .item big, #top .excerpt, .item .excerpt, #top small, 
+.item small, .twitter small             {border-left-width: 0px; border-right-width: 0px;}
+
+/* HEIGHTS */
+
+#page                   {margin-top: 15px;}
+/* h1 >= .banner.full + .publ */ 
+h1, h1 a                {height: 88px;}
+.banner.full            {height: 60px; margin-top: 3px; margin-bottom: 3px;}
+.publ, .colab           {height: 17px;}
+/* #top h2 = #top h3 */
+#top h2                 {height: 33px;}
+#top h3                 {height: 23px; padding-top: 10px;}
+#top h2, #top h3        {margin-bottom: 3px;}
+/* #top a margin-top > #top h2 */
+#top li                 {min-height: 250px; margin-top: 10px; padding-bottom: 10px;}
+#top a                  {margin-top: 3px; margin-bottom: 3px; padding-top: 3px; padding-bottom: 3px;}
+#top big                {padding-bottom: 0.2em;}
+/* form.search = #menu */
+#menu                   {height: 50px; margin-top: 10px; list-style: none;}
+#menu li, #menu li a    {height: 39px;}
+#menu, form.search      {margin-bottom: 5px;}
+form.search             {height: 40px; margin-top: 10px; padding-top: 10px;}
+/* #left h2 = #left h3 */
+#left h2                {height: 50px;}
+#left h3                {height: 30px; padding-top: 20px;}
+/* #middle h2 = #middle h3 */
+#middle h2              {height: 50px;}
+#middle h3              {height: 30px; padding-top: 20px;}
+
+input                   {padding-top: 2px; padding-bottom: 2px;}
+
+#right h2               {height: 50px;}
+#footer                 {padding-top: 0.4em; padding-bottom: 0.4em; margin-bottom: 0.5em;}
+
+#left .item             {min-height: 117px; padding: 6px; border-top-width: 10px; border-top-style: solid;}
+#left .item.first       {border-top-width: 0px;}
+#left .item big         {padding-top: 0.2em;  padding-bottom: 0em;}
+#left .item small       {padding-bottom: 0.7em;}
+
+.home #left li          {min-height: 215px;}
+.prev, .next            {margin-top: 0.5em; margin-bottom: 1em;}
+
+.home #left img                       {margin-top: 5px;}
+#left big, #middle .trailers big, #middle .reportajes small {padding-bottom: 15px;}
+.home #left big, #middle big          {padding-top: 15px;}
+
+.single #left big, .single #left h4, dt {padding-bottom: 0.5em;}
+.more-link, dt                        {padding-top: 0.5em;}
+
+#left li, #middle li, #right li       {margin-top: 5px; margin-bottom: 15px;}
+#left li li                           {margin-top: 0px; margin-bottom: 0px;}
+#right .twitter li                    {margin-top: 0px; margin-bottom: 0px;}
+.twitter li, .twitter small           {padding-top: 8px; padding-bottom: 8px; border-bottom-width: 1px;}
+
+
+#left li, #middle li, #left .excerpt, #middle .excerpt, li.newsletter fieldset, 
+li.newsletter label                   {padding-bottom: 6px;}
+.single big                           {padding-top: 0.5em;}
+
+p, table, h4, dl, .single #left form  {padding-bottom: 1em;}
+
+.licencia textarea                    {height: 2em; padding-top: 1em; padding-bottom: 1em;}
+.sponsors img                         {margin-bottom: 5px;}
+
+/* fixed space on the left for #left .item img */
+#left .item .excerpt, #left .item big {margin-left: 76px;}
+
+/* IMAGES */
+
+h1 img                                {width: 488px; height:  88px;}
+#top img                              {width: 150px; height: 222px;}
+#left img                             {width: 360px; height: auto;}
+.colaboraciones img                   {width: 170px; height: 134px;}
+.sponsors img                         {width: 170px; height:  92px;}
+.home #left img                       {width: 225px; height: 150px;}
+#left .item img                       {width: 75px; height: 111px;}
+#top img, #left img, .twitter img     {margin-bottom: 2px; margin-right: 5px;}
+.single #left img                     {margin-left: 10px; margin-right: 10px;}
+.banner.medium                        {width: 300px; height: 250px;}
+.banner.sky                           {width: 120px; height: 600px; margin-left: 24px; margin-right: 24px;}
+.twitter img                          {width: 32px; height: 32px;}
+#middle .trailers object, 
+#middle .trailers img                 {width: 300px; height: 190px;}
+.single .trailers object,
+.single .trailers iframe              {width: 743px; height: 1200px;}
+#left dd img                          {width: auto; float: none; vertical-align: middle;}
+img.tracker                           {width: 1px; height: 1px;}
+
+/* BORDERS */
+img, a img                            {border-width: 1px; border-style: solid;}
+h1 img, .colaboraciones img, .sponsors img {border-width: 0px;}
+img.banner                            {border-style: dotted;}
+
+#right li.newsletter form, #footer    {border-width: 1px; border-style: solid;}
+.twitter li, .twitter small           {border-bottom-width: 1px; border-bottom-style: solid;}
+
+tbody, tr, td hr          {width: 767px;}
+th, td                    {padding-left: 0.5em; padding-right: 0.5em; border-right-width: 1px; border-right-style: solid; border-bottom-width: 1px; border-bottom-style: solid;}
+td                        {padding-top: 0.5em; padding-bottom: 0.5em;}
+tr.header, th             {height: 44px;}
+th                        {background-image: url(images/sprite.png); background-color: transparent;}
+th                        {background-position: -549px -898px;}
+th.first                  {background-position: -539px -898px;}
+th.last                   {background-position: right -898px;}
+                          
+th.first                  {padding-left: 10px;}
+th.last                   {padding-right: 10px; border-right-width: 0px;}
+tr.empty                  {height: 10px;}
+th                        {border-color: #d1ce92;}
+td                        {border-color: #cccccc;}
+tr.empty td               {padding: 0.1em 0  0.4em 0; border-right-width: 0px;}
+tr.empty td hr            {border: 0; border-top: 1px dotted #aaa;}
+td.first                  {border-left-width: 1px; border-left-style: solid; }
+
+.sponsors img             {border-top-width: 1px;}
+
+/* Firefox does not draw borders around OBJECT. Fixed with: */
+#middle .trailers object  {border-left: 0; border-right: 0; margin-left: 1px; margin-right: 1px;}
+#middle .trailers         {background-color: #cecac3;}
+#middle .trailers big     {background-color: #ffffff;}
+
+/* IE7 does non properly clear floats. Fixed with: */
+#menu, .publ, #left       {clear: none;}
+
+/* reset */
+ol, ul, li {margin: 0; padding: 0; list-style-type: none;}
+
+/* forms */ 
+
+form li {float: left;}
+#user_first_name_input {width: 175px;}
+
+fieldset {margin: 0; padding: 0; border: 0;}
+
+label {display: block;  margin-right: 14px;}
+select {margin-bottom: 5px; margin-top: 5px;}
+input[type="text"] {margin-bottom: 19px; margin-top: 3px;}
+input[type="submit"] {margin-top: 25px; margin-bottom: 10px;}
+fieldset {margin-top: 4px;}
+label.full_width {clear: both;}
+.half_width input {width: 175px;}
+.full_width input {width: 376px;}
+input {border: 1px solid #ccc; padding: 5px;}
+input, label {letter-spacing: 1px;}
+select {letter-spacing: 0px;}
+.visibly_hidden {display: none;}
+
+input {-moz-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);}
+
+
+  
+    input[type="text"] { 
+      /* fallback (Opera) */
+      background: #fff;
+      /* Mozilla: */
+      background: -moz-linear-gradient(top, #ffffff, #efefef);
+      /* Chrome, Safari:*/
+      background: -webkit-gradient(linear,
+                  left top, left bottom, from(#ffffff), to(#efefef));
+      /* MSIE */
+      filter: progid:DXImageTransform.Microsoft.Gradient(
+                  StartColorStr='#ffffff', EndColorStr='#efefef', GradientType=0);
+    } 
+    
+    input[type="submit"] { text-shadow: 1px 1px 1px #fff;
+      /* fallback (Opera) */
+      background: #fff;
+      /* Mozilla: */
+      background: -moz-linear-gradient(top, #ffffff, #cfcfcf);
+      /* Chrome, Safari:*/
+      background: -webkit-gradient(linear,
+                  left top, left bottom, from(#ffffff), to(#cfcfcf));
+      /* MSIE */
+      filter: progid:DXImageTransform.Microsoft.Gradient(
+                  StartColorStr='#ffffff', EndColorStr='#cfcfcf', GradientType=0);
+    }

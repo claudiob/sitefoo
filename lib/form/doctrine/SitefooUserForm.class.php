@@ -12,6 +12,16 @@ class SitefooUserForm extends BaseSitefooUserForm
 {
   public function configure()
   {
+    // @claudiob - render fields without a table-based layout
+    $this->getWidgetSchema()->getFormFormatter()->setRowFormat(
+      "%label%%field%%error%%help%%hidden_fields%");
+    $this->getWidgetSchema()->getFormFormatter()->setErrorRowFormat(
+      "%errors%\n");
+    $this->getWidgetSchema()->getFormFormatter()->setHelpFormat(
+      '%help%');
+    $this->getWidgetSchema()->getFormFormatter()->setDecoratorFormat(
+      "%content%");
+
     // @claudiob - render errors in a 'jquery.validate' format
     // TODO: extract the field name and use it as the "for" attribute
     $this->getWidgetSchema()->getFormFormatter()->setErrorListFormatInARow(
@@ -27,10 +37,11 @@ class SitefooUserForm extends BaseSitefooUserForm
     
     // @claudiob - validation rules (added to the SQL ones) and custom lists
     // email
-    $this->validatorSchema['email'] = new sfValidatorAnd(array( 
-      $this->validatorSchema['email'], 
-      new sfValidatorEmail()
-    ));
+    $this->validatorSchema['email'] = new sfValidatorEmail();
+    $this->validatorSchema->setPostValidator(new sfValidatorDoctrineUnique(
+      array('model' => 'SitefooUser', 'column' => 'email',
+        'throw_global_error' => false),
+      array('invalid' => 'A user with this %column% already exists.')));
 
     // birth_date
     $minimum_age = 13;
@@ -43,11 +54,11 @@ class SitefooUserForm extends BaseSitefooUserForm
     ));
     $birth_date_max = date('Y-m-d',
       strtotime ("-$minimum_age year", strtotime(date('Y-m-d'))));
-    $this->validatorSchema['birth_date'] = new sfValidatorAnd(array( 
-      $this->validatorSchema['birth_date'], 
-      new sfValidatorDate(array('max' => $birth_date_max))
-    ));
-
+    $this->validatorSchema['birth_date'] = new sfValidatorDate(
+        array('max' => $birth_date_max), 
+        array('max' => "You must be at least $minimum_age years old to sign up.",
+              'invalid' => 'Please enter a valid date.'));
+  
     // country
     $this->widgetSchema['country'] = new sfWidgetFormI18nChoiceCountry(array(
       'add_empty' => '--',
@@ -58,12 +69,17 @@ class SitefooUserForm extends BaseSitefooUserForm
     ));
     
     // time_zone
-    $this->widgetSchema['time_zone'] = new sfWidgetFormI18nChoiceTimezone(array(
-      'add_empty' => '--',
-    ));
-    $this->validatorSchema['time_zone'] = new sfValidatorAnd(array( 
-      $this->validatorSchema['time_zone'], 
-      new sfValidatorI18nChoiceTimezone()
+    // NOTE: sfWidgetFormI18nChoiceTimezone has a different set of zones
+    // $this->widgetSchema['time_zone'] = new sfWidgetFormI18nChoiceTimezone(array(
+    //   'add_empty' => '--',
+    // ));
+    // $this->validatorSchema['time_zone'] = new sfValidatorAnd(array( 
+    //   $this->validatorSchema['time_zone'], 
+    //   new sfValidatorI18nChoiceTimezone()
+    // ));
+    $this->widgetSchema['time_zone'] = new sfWidgetFormChoice(array(
+      'choices' => sfConfig::get('app_timezones'),
+      'expanded' => false,
     ));
     
   }

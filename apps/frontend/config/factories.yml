@@ -8,6 +8,11 @@ prod:
       level:   err
       loggers: ~
 
+dev:
+  logger:
+    param:
+      level:   debug
+
 test:
   storage:
     class: sfSessionTestStorage

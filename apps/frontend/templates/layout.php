@@ -17,7 +17,7 @@
 
       <div id="header">
         <h1>Sitefoo</h1>
-        <img src="images/logo_sitefoo.png" alt="Sitefoo logo" />  
+        <img src="/images/logo_sitefoo.png" alt="Sitefoo logo" />  
         <ul class="horizontal">
           <li><a href="#">Features &amp; benefits</a></li>
           <li><a href="#">Plans &amp; pricing</a></li>
@@ -25,7 +25,7 @@
             <!-- @claudiob jQuery works on classes 'with_dropdown' and 'dropdown' -->
             <a href="?show=about_us">About us</a>
             <!-- @claudiob The ?show parameter is checked on the server to show dropdowns when jQuery is disabled -->
-            <div class="dropdown">
+            <div class="dropdown"<?php if($sf_params->get('show') == 'about_us') {?> style="display: block;"<?php } ?>>
               <!-- @claudiob This additional DIV separates the link from the dropdown while maintaining the hover active -->
               <ul>
                 <li><a href="#">About our New York team</a></li>
@@ -37,7 +37,7 @@
           <li><a href="#">Log in</a></li>
           <li>
             <!-- @claudiob - The tipsy could be made a dropdown by adding the 'with_dropdown' class -->
-            <a href="<?php echo url_for('user/new') ?>">Sign up</a>
+            <a class="with_tipsy" href="<?php echo url_for('user/new') ?>">Sign up</a>
             <div class="tipsy">
               <a href="#">It&#8217;s free!</a>
             </div>
@@ -46,21 +46,24 @@
       </div>
 
       <div id="content">
+        <?php if ($sf_user->hasFlash('notice')): ?>
+          <div class="notice"><?php echo $sf_user->getFlash('notice') ?></div>
+        <?php endif ?>
         <?php echo $sf_content ?>
       </div>
 
       <div id="footer">
         <div id="footer_left">
-          <ul id="actions" class="hor">
+          <ul id="actions" class="horizontal">
             <li class="action_1"><a href="#">Watch a brief video showing how Sitefoo works.</a></li>
             <li class="action_2"><a href="#">Sign up for Sitefoo. It&#8217;s free and it&#8217;s fun!</a></li>
-            <li class="action_3"><img src="images/ribbon.png" alt="win">
+            <li class="action_3"><img src="/images/ribbon.png" alt="win" />
               <a href="#">Enter to win an iPod Nano from Awesome Site.
               </a>
              </li>
           </ul>
 
-          <ul id="nav" class="hor">
+          <ul id="nav" class="horizontal">
             <li><a href="#">API</a></li>
             <li><a href="#">FAQ &amp; help</a></li>
             <li><a href="#">Privacy policy</a></li>

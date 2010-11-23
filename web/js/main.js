@@ -1,24 +1,43 @@
-// @claudiob - 2010.11.21 
-// Rather than duplication the validation rules here, the plugin 
-// sfJqueryFormValidationPlugin could be used. However, that plugin does not
-// manage ALL the rules (e.g., date, country, time zone), only basic ones.
+// @claudiob - Before moving to production, this script should be minified
 
-// validate
+/* FORM VALIDATION */
 
 $(document).ready(function(){  
+  // @claudiob - 2010.11.21 
+  // Rather than duplication the validation rules here, the plugin 
+  // sfJqueryFormValidationPlugin could be used. However, that plugin does not
+  // manage ALL the rules (e.g., date, country, time zone), only basic ones.
   var validator = $('form').validate({  
       rules: {  
           sitefoo_user_first_name: 'required',  
           sitefoo_user_last_name: 'required',  
           sitefoo_user_email: {required: true, email: true},  
-          sitefoo_user_birth_date: 'required',  
+          sitefoo_user_birth_date_year: 'required',  
           sitefoo_user_country: 'required',  
           sitefoo_user_time_zone: 'required',  
       },  
-      errorPlacement: function(label, element) {  
-              label.insertAfter(element);  
-      }  
-  });  
+      errorPlacement: function(label, element) {label.insertAfter(element);}  
+  });
+});
+
+/* DROPDOWN */
+
+(function ($) {
+  $.fn.activateDropdown = function (dropdownClass) {
+    return this.each(function () {
+      var $$ = $(this);
+      $$.hover(
+        function() { $$.find(dropdownClass).show();} , 
+        function() { $$.find(dropdownClass).hide();}
+        // @claudiob - For now I'm using show/hide but we could design nicer
+        // transitions using fade or CSS3 transitions
+      );
+    });
+  };  
+})(jQuery);
+
+$(document).ready(function() {
+  $('.with_dropdown').activateDropdown('.dropdown');
 });
 
 // jQuery(function($){

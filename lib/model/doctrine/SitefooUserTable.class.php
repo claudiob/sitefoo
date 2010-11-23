@@ -16,14 +16,4 @@ class SitefooUserTable extends Doctrine_Table
     {
         return Doctrine_Core::getTable('SitefooUser');
     }
-    
-    // @claudiob - List available countries
-    static public $countries = array(
-      'IT' => 'Italy',
-      'US' => 'United States of America',
-      'FR' => 'France',
-    );
-    public function getCountries() {
-      return self::$countries;
-    }
 }

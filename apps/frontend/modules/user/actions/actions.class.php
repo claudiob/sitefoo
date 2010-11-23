@@ -25,9 +25,10 @@ class userActions extends sfActions
 
   public function executeNew(sfWebRequest $request)
   {
-    // @claudiob - set a default value for a field in the form
+    // @claudiob - set default values for fields in the form
     $sitefoo_user = new SitefooUser();
     $sitefoo_user->setEmail('phorkit@elenor.net');
+    $sitefoo_user->setTimeZone('Pacific Time (US &amp; Canada)');
     $this->form = new SitefooUserForm($sitefoo_user);
   }
 
@@ -74,7 +75,8 @@ class userActions extends sfActions
     if ($form->isValid())
     {
       $sitefoo_user = $form->save();
-      $this->redirect('user_show', $sitefoo_user);
+      $this->getUser()->setFlash('notice', 'You signed up correctly! Now you can sign up another time as a different user.');
+      $this->redirect('user/new');
     }
   }
 }

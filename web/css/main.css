@@ -1,180 +1,193 @@
-body, input {font-family: Helvetica, sans-serif;}
-body, header, h1, img {margin: 0;}
-#header, #content {margin: 0 auto; width: 1024px; clear: both;}
-#header h1 {float: right;}
+/* RESET DEFAULT */
+
+*, html, body, div, dl, dt, dd, ul, ol, li, 
+h1, h2, h3, h4, h5, h6, pre, form, label, 
+fieldset, input, p, blockquote, th, td  {margin:0; padding:0}
+address, caption, cite, code, dfn, em, strong, 
+th, var                                 {font-style:normal; font-weight:normal}
+h1, h2, h3, h4, h5, h6                  {font-size:100%}
+table                                   {border-collapse:collapse; border-spacing:0}
+fieldset, img                           {border:0}
+ol, ul, li                              {list-style:none}
+caption, th                             {text-align:left}
+q:before, q:after                       {content:''}
+strong, dt                              {font-weight: bold}
+em                                      {font-style: italic}
+* a                                     {position:relative} 
+a                                       {outline:none}        
+a img                                   {border:none}
+
+/* WIDTHS (layout) */
+
+/* #page = #header = #content = #footer = 1024px */
+#page                         {width: 1024px; margin-left: auto; margin-right: auto;}
+#header, #content, #footer    {width: 964px; padding-left: 21px; padding-right: 39px;}
+/* #footer = #footer_left + #footer_right*/
+#footer_left                  {width: 647px;}
+#footer_right                 {width: 257px; padding-left: 60px;}
+
+/* WIDTHS (objects) */
+
+#header>h1                    {width: 68px;}
+#header>ul>li                 {margin-right: 16px;}
+#header>ul>li>a, .dropdown>ul, #actions li, #actions li a, 
+.notice                       {padding-left: 9px; padding-right: 9px;}
+.tipsy                        {padding-left: 22px; padding-right: 22px;}
+
+#header>ul                    {padding-left: 141px;}
+/* #content > * == #header>ul + #header>ul>li>a for vertical alignment */
+#content>*                    {padding-left: 150px;}
+input, #actions > li          {border-left-width: 1px; border-right-width: 1px;}
+input                         {padding-left: 5px; padding-right: 5px;}
+input[type="submit"]          {padding-left: 25px; padding-right: 25px;}
+#header>ul>li.with_dropdown>a {padding-right: 32px;}
+#actions>li                   {width: 154px; margin-right: 16px;}
+#nav>li                       {margin-right: 40px;}
+#tweets p                     {padding-left: 40px;}
+.notice                       {margin-left: 9px; margin-right: 9px;}
+fieldset>span.half>input      {width: 175px; margin-right: 15px;}
+fieldset>span.full>input,     
+fieldset>span.full>select     {width: 376px;}
 
 
-body {background-color: #bfbfbf; color: #333;}
+/* HEIGHTS */
 
+/* #content padding-bottom >= #footer in order to stick footer */
+html,body                     {height:100%;}
+#page                         {min-height:100%; position: relative;}
+#footer                       {height:244px; border-bottom-width: 3px; position:absolute; bottom:0;}
+#content                      {padding-bottom:287px;} /* 40px of real padding */
+                              
+#header                       {height: 55px; margin-bottom: 20px;}
+#content                      {padding-top: 20px;}
+#actions                      {height: 170px; padding-top: 42px; padding-bottom: 10px; margin-bottom: 5px;}
 
-label {display: block; float: left;}
-input {clear: left; float: left;}
+/* HEIGHTS (objects) */
 
-html,
-body {
-   margin:0;
-   padding:0;
-   height:100%;
-}
-#page {
-   min-height:100%;
-   position:relative;
-   margin: 0 auto;
-   width: 1024px;
-   background: #fff;
-}
-#header, #footer, #content {
-    padding-left: 21px;
-    padding-right: 39px;
-    width: 964px;
-}
+#header>h1                    {height: 55px;}
+#header>ul                    {padding-top: 11px;}
+#header>ul>li>a, .dropdown>ul, 
+#actions > li, .notice        {padding-top: 9px; padding-bottom: 9px;}
+ .tipsy                       {padding-top: 4px; padding-bottom: 4px;}
+.dropdown ul                  {margin-top: 4px;}
+input, #actions > li          {border-top-width: 1px; border-bottom-width: 1px;}
+input                         {padding-top: 5px; padding-bottom: 5px;}
+input[type="submit"]          {padding-top: 8px;}
+label                         {padding-bottom: 5px; padding-top: 2px;}
+fieldset>span                 {margin-bottom: 20px;}
+#tweets                       {height: 192px; padding-top: 20px; padding-bottom: 10px; margin-bottom: 5px;}
+#tweets li                    {padding-bottom: 25px;}
+#actions li a                 {padding-top: 93px;}
+#tweets p                     {min-height: 17px; margin-top: 10px; padding-top: 4px; border-bottom-width: 1px; margin-bottom: 10px; padding-bottom: 10px;}
+.notice                       {margin-top: 9px; margin-bottom: 9px;}
 
-#header {
-   background: url(../images/bg_header.png) repeat-y; margin-bottom: 20px; height: 55px;
-}
-.ie5 #page, .ie6 #page {
-   height:100%;
-}
+/* LAYOUT */
 
-a {text-decoration: none; }
-#footer a, #header a {color: #fff;}
-#header ul li > a {text-shadow: 1px 1px 1px rgba(4, 90, 22, 0.72);}
-#footer {font-size: 10px;}
-#header {font-size: 11px;}
-.dropdownx, #content {font-size: 12px; line-height: 1.5;}
-input[type="submit"] {font-size: 10px; padding-left: 25px; padding-right: 25px; padding-top: 8px; padding-bottom: 5px;}
-input[type="text"] {font-size: 13px;}
-#header ul {padding-top: 11px;}
-#header ul, #content > * {padding-left: 150px;}
-#header ul {margin-left: -9px;}
-#header ul li {padding: 0;}
-#header ul li > a {padding: 9px;}
-#header ul li.with_dropdown > a {background: url(../images/dropdown_arrow.png) no-repeat center right; padding-right: 32px;}
-#header ul li:hover, .dropdown ul, input[type="submit"] {background-color: #6ccc08; -moz-border-radius: 5px;}
+#header, #content, #footer    {clear: both;}
+fieldset>span,
+input[type="submit"]          {clear: left;}
+fieldset>span.half            {clear: none;}
+                              
+#header>img, .horizontal>li,   
+fieldset>span, #footer_left,
+input[type="submit"]          {float: left;}
+#header>h1, #footer_right     {float: right;}
 
-#header ul li a {display: block;}
-.dropdownx {position: absolute; margin-top: 6px; margin-ldeft: -9px;}
+#header>ul>li>a, #actions li a, 
+label                         {display: block;}
+.dropdown                     {display: none;}
+                              
+.dropdown, .tipsy             {position: absolute;}
+                              
+/* TYPOGRAPHY */
 
-.dropdown {display: none; position: absolute; background: red;}
-/*
-@font-face {
-  font-family: PTSans;
-  src: url("Collegiate.ttf");
-}
-.ribbon {
-  font-family: Collegiate, sans-serif;
-}
-*/
+body, input                   {font-family: Helvetica, sans-serif;}
+                              
+body, #tweets a               {font-size: 12px;}
+#header>ul>li>a, #actions     {font-size: 11px;}
+#footer, input[type="submit"] {font-size: 10px;}
+input[type="text"]            {font-size: 13px;}
+.tipsy                        {font-size: 14px;}
+                              
+#copyright                    {font-style: oblique;}
+.tipsy                        {font-style: italic;}
+#header>ul>li>a, #tweets p    {font-weight: bold;}
+                              
+                              
+body                          {line-height: 1.5;}
+#tweets a                     {line-height: 1.2;}
 
-.dropdownx a {clear: both;}
+#header>ul>li>a, input[type="submit"], 
+#nav, #tweets p               {text-transform: uppercase;}
+.tipsy                        {text-transform: lowercase;}
+a                             {text-decoration: none;}
+                              
+input, label                  {letter-spacing: 1px;}
+                              
+#header>ul>li>a               {text-shadow: 1px 1px 1px rgba(4, 90, 22, 0.72);}
+input[type="submit"]          {text-shadow: 1px 1px 1px #fff;}
 
-ul {list-style-type: none; margin: 0; padding: 0;}
-.horizontal > li {float: left; margin-right: 16px;}
-.horizontal > li, .dropdownx {padding: 9px;}
-.horizontal > li > a  {font-weight: bold; }
-.horizontal > li > a, input[type="submit"]  {text-transform: uppercase; }
-#actions a {text-transform: none; font-weight: normal;}
-#actions {font-family: "PT Sans"; font-size: 11px; }
-h1 {background: url(../images/sitefoo.png) no-repeat; width: 68px; height: 55px; text-indent: -9999px; left: 10px;}
+/* COLORS */
 
-#header img {float: left;}
+body                                    {background-color: #bfbfbf;}
+#page                                   {background-color: #fff;}
+#footer                                 {background-color: #000;}
+#header>ul>li:hover, .dropdown>ul       {background-color: #6ccc08;}
+#actions > li                           {background-color: #1a1a1a;}
+.notice                                 {background-color: #ffc;}
 
-fieldset {margin: 0; padding: 0; border: 0;}
+body                                    {color: #333;}
+#header, #footer, #header a, #footer a  {color: #fff;}
+label.error                             {color: #d00;}
+#tweets p                               {color: #4ba80f;}
+#tweets .date                           {color: #888;}
 
-label {display: block;  margin-right: 14px;}
-select {margin-bottom: 5px; margin-top: 5px;}
-input[type="text"] {margin-bottom: 19px; margin-top: 3px;}
-input[type="submit"] {margin-top: 25px; margin-bottom: 10px;}
-fieldset {margin-top: 4px;}
-label.full_width {clear: both;}
-.half_width input {width: 175px;}
-.full_width input {width: 376px;}
-input {border: 1px solid #ccc; padding: 5px;}
-input, label {letter-spacing: 1px;}
-select {letter-spacing: 0px;}
-.visibly_hidden {display: none;}
+input                                   {border-color: #ccc;}
+input.error                             {border-color: #d00;}
+#footer                                 {border-bottom-color: #64c00d;}
+#actions > li                           {border-color: #2b2b2b;}
+#tweets p                               {border-bottom-color: #5c5c5c;}
 
-#content {
-    padding-top: 20px;
-   padding-bottom:284px;   /* Height of the footer + 40px */
-}
-#footer {
-   position:absolute;
-   bottom:0;
-   height:244px;   /* Height of the footer */
-   background:#000;
-   color: #fff;
-   border-bottom: 3px solid #64c00d;
-}
+/* BACKGROUNDS */
 
-#footer_left {width: 647px; float: left; background: url(../images/footer_separator.png) no-repeat top right;}
-#footer_right {width: 257px; float: right; padding-left: 60px;}
-#footer_left, #footer_right {xmin-height:244px;   /* Height of the footer */}
+#header>h1                      {text-indent: -9999px; overflow: hidden;}
+#header>ul>li.with_dropdown>a, #footer_left, #actions li a, #tweets p, 
+.with_tipsy                     {background-repeat: no-repeat; }
+#header                         {background-repeat: repeat-y;}
+#header>h1, #header, #header>ul>li.with_dropdown>a, #footer_left, 
+#actions li.action_1 a, #actions li.action_2 a, #actions li.action_3 a, 
+#tweets p, .with_tipsy          {background-image: url(../images/sprite.png);}
+#header                         {background-position:   -1px    0px}
+#header>h1                      {background-position: -490px  -78px}
+#header>ul>li.with_dropdown>a   {background-position: -807px -130px}
+.with_tipsy                     {background-position: -470px -115px}
+#actions li.action_1 a          {background-position:   -1px  -81px}
+#actions li.action_2 a          {background-position: -161px  -81px}
+#actions li.action_3 a          {background-position: -321px  -81px}
+#footer_left                    {background-position:  646px    0px}
+#tweets p                       {background-position: -531px -133px}
 
-#actions {padding-top: 42px; height: 170px; padding-bottom: 10px; margin-bottom: 5px;}
-#dactions {width: 646px; margin-top: 48px; clear: both; height: 100px;}
-#actions > li {width: 154px; background-color: #1a1a1a; border: 1px solid #2b2b2b; margin-right: 16px; padding: 9px;}
-#actions li.with_ribbon {background: url(../images/ribbon.png) no-repeat top right;}
-#actions li a {padding-top: 93px; display: block; padding-left: 9px; padding-right: 9px;}
-#actions li a {background-repeat: no-repeat; background-position: 50% 8px; }
-#actions li.action_1 a {background-image: url(../images/action_1.png) }
-#actions li.action_2 a {background-image: url(../images/action_2.png) }
-#actions li.action_3 a {background-image: url(../images/action_3.png) }
-#actions li.action_3 img {position: absolute; left: 534px; top: 38px;}
+/* IMAGES */
 
-ul {padding: 0; margin: 0; list-style-type: none;}
-ul.hor > li {float: left;}
-#tweets {padding-top: 20px; height: 192px; padding-bottom: 10px; margin-bottom: 5px;}
-#tweets li {padding-bottom: 25px;}
+#actions li.action_3 img        {position: absolute; left: 534px; top: 38px;}
 
-#nav li {margin-right: 40px;}
+/* BORDERS */
 
-body {font-family: Helvetica, sans-serif; font-size: 12px; }
-#tweets p {color: #4ba80f; font-weight: bold; text-transform: uppercase; display: block; background: url(../images/bird.png) no-repeat top left; min-height: 17px; padding-left: 40px; padding-top: 4px; border-bottom: 1px dotted #5c5c5c; padding-bottom: 10px;}
-#tweets .date {color: #888; font-size: 10px; line-height: 2;}
-a {color: #fff; text-decoration: none;}
-#copyright {font-size: 10px; font-style: oblique;}
-#nav {font-size: 10px; font-weight: bolds; text-transform: uppercase;}
-#actions li a {font-family: "PT Sans"; font-size: 11px; }
+#footer                         {border-bottom-style: solid;}
+input, #actions > li            {border-style: solid;}
+#tweets p                       {border-bottom-style: dotted;}
 
-#header, .dropdownx, input {-moz-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);}
-  .tipsy { font-family: "PT Sans"; text-transform: lowercase; padding-left: 20px; padding-right: 20px; font-style: italic; font-size: 14px; color: #fff; -moz-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.75);
-/* thanks to http://blog.fakedarren.com/2010/01/cross-browser-css-gradients/ */
- 
-    /* fallback (Opera) */
-    background: #008800;
-    /* Mozilla: */
-    background: -moz-linear-gradient(top, #606060, #101010);
-    /* Chrome, Safari:*/
-    background: -webkit-gradient(linear,
-                left top, left bottom, from(#606060), to(#101010));
-    /* MSIE */
-    filter: progid:DXImageTransform.Microsoft.Gradient(
-                StartColorStr='#606060', EndColorStr='#101010', GradientType=0);
-  }
-  
-    input[type="text"] { 
-      /* fallback (Opera) */
-      background: #fff;
-      /* Mozilla: */
-      background: -moz-linear-gradient(top, #ffffff, #efefef);
-      /* Chrome, Safari:*/
-      background: -webkit-gradient(linear,
-                  left top, left bottom, from(#ffffff), to(#efefef));
-      /* MSIE */
-      filter: progid:DXImageTransform.Microsoft.Gradient(
-                  StartColorStr='#ffffff', EndColorStr='#efefef', GradientType=0);
-    } 
-    
-    input[type="submit"] { text-shadow: 1px 1px 1px #fff;
-      /* fallback (Opera) */
-      background: #fff;
-      /* Mozilla: */
-      background: -moz-linear-gradient(top, #ffffff, #cfcfcf);
-      /* Chrome, Safari:*/
-      background: -webkit-gradient(linear,
-                  left top, left bottom, from(#ffffff), to(#cfcfcf));
-      /* MSIE */
-      filter: progid:DXImageTransform.Microsoft.Gradient(
-                  StartColorStr='#ffffff', EndColorStr='#cfcfcf', GradientType=0);
-    }
+/* CSS3 PROPERTIES */
+
+#header>ul>li:hover, .dropdown ul, .tipsy, input[type="submit"] {-moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px;}
+
+#header, .dropdown ul, input  {box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2); -moz-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2); -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);}
+.tipsy                        {box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.75); -moz-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.75); -webkit-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.75);}
+
+input[type="text"]    {background: #ffffff; background: -moz-linear-gradient(top, #ffffff, #efefef); background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#efefef)); filter: progid:DXImageTransform.Microsoft.Gradient(StartColorStr='#ffffff', EndColorStr='#efefef', GradientType=0);}
+input[type="submit"]  {background: #ffffff; background: -moz-linear-gradient(top, #ffffff, #cfcfcf); background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#cfcfcf)); filter: progid:DXImageTransform.Microsoft.Gradient(StartColorStr='#ffffff', EndColorStr='#cfcfcf', GradientType=0);}
+.tipsy                {background: #008800; background: -moz-linear-gradient(top, #606060, #101010); background: -webkit-gradient(linear, left top, left bottom, from(#606060), to(#101010)); filter: progid:DXImageTransform.Microsoft.Gradient(StartColorStr='#606060', EndColorStr='#101010', GradientType=0);}
+
+@font-face {font-family: "PT Sans"; src: url(../fonts/PTS55F.ttf);}
+@font-face {font-family: "PT Sans"; src: url(../fonts/PTS56F.ttf); font-style: italic;}
+.tipsy, #actions {font-family: "PT Sans", sans-serif;}
