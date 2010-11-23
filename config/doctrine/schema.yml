@@ -1,0 +1,10 @@
+# config/doctrine/schema.yml 
+SitefooUser:
+  actAs: { Timestampable: ~ } 
+  columns:
+    first_name: { type: string(255), notnull: true }
+    last_name:  { type: string(255), notnull: true }
+    email:      { type: string(255), notnull: true, unique: true }
+    birth_date: { type: date, notnull: true }
+    country:    { type: string(255), notnull: true }
+    time_zone:  { type: string(255), notnull: true }

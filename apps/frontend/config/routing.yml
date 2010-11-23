@@ -8,9 +8,15 @@ homepage:
 
 # generic rules
 # please, remove them by adding more specific rules
-default_index:
-  url:   /:module
-  param: { action: index }
-
-default:
-  url:   /:module/:action/*
+# @claudiob - commented
+# default_index:
+#   url:   /:module
+#   param: { action: index }
+# 
+# default:
+#   url:   /:module/:action/*
+  
+# @claudiob - RESTful routes for user
+user:
+  class:   sfDoctrineRouteCollection
+  options: {model: SitefooUser}

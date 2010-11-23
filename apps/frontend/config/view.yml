@@ -6,15 +6,19 @@ default:
     content-type: text/html
 
   metas:
-    #title:        symfony project
-    #description:  symfony project
-    #keywords:     symfony, project
-    #language:     en
-    #robots:       index, follow
+    title:        Sitefoo
+    description:  A Sitefoo page
+    keywords:     "sitefoo, web"
+    language:     en
+    robots:       all
+    viewport:     "width=1000"
+    author:       "Claudio Bacciglaupo"
+    version:      0.1
+    copyright:    Sitefoo
 
   stylesheets:    [main.css]
 
-  javascripts:    []
+  javascripts:    [jquery.min.js, jquery.validate.js, main.js]
 
   has_layout:     true
   layout:         layout
